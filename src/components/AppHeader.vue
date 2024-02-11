@@ -67,7 +67,7 @@
             <img src="../assets/img/dc-logo.png" alt="" style="height: 50px;">
          </figure>
          <ul>
-            <li v-for="(element, index) in linkHeader" :key='index'><a :href="element.link" :class="element.linkCorrente ? 'border-link' : ''">{{ element.testo.toUpperCase() }}</a></li>
+            <li v-for="(element, index) in linkHeader" :key='index' :class="element.linkCorrente ? 'border-link' : ''"><a :href="element.link">{{ element.testo.toUpperCase() }}</a></li>
          </ul>
       </nav>
    </header>
@@ -76,17 +76,14 @@
 <style lang="scss" scoped>
    @use '../scss/partials/mixins.scss' as*;
    @use '../scss/partials/variables.scss'as *;
-   
-   a.border-link{
-      position: relative;
-      &::after{
-         content: '\005F';
-         color:  $bg-blu;
-         position: absolute;
-         top:-360%;
-         font-size:100px;
-         left: 10%;
+   header{
+      height: 90px;
+      li{
+         line-height:calc(90px - 3px );
       }
+   }
+   li.border-link{
+      border-bottom: 3px solid $bg-blu;
    }
 
    nav{
@@ -94,7 +91,6 @@
       width: 80%;
       margin: 0 auto;
       justify-content: space-between;
-      padding: 20px;
       ul{
          @include d-flex;
          gap: 20px;
