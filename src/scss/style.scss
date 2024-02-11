@@ -1,0 +1,12 @@
+@use './partials/mixins.scss' as*;
+
+*{
+    @include reset;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
